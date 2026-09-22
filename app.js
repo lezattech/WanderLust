@@ -10,11 +10,11 @@ const mo = require("method-override");
 const mongoose = require("mongoose");
 const db_URL = process.env.ATLASDB_URL;
 const ExpressError = require("./utils/ExpressError.js");
-const ejsMate = require("ejs-mate");  
+const ejsMate = require("ejs-mate");
 const listingsRouter = require("./routes/listings.js");
 const reviewsRouter = require("./routes/reviews.js");
 const usersRouter = require("./routes/users.js");
-const MongoStore = require('connect-mongo').default;
+const MongoStore = require("connect-mongo").default;
 const session = require("express-session");
 const flash = require("connect-flash");
 const User = require("./models/user.js");
@@ -32,8 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(mo("__method"));
 app.engine("ejs", ejsMate);
 
-
-
 main()
   .then(() => {
     console.log("Connected to DB ...");
@@ -47,20 +45,20 @@ async function main() {
 }
 
 const store = MongoStore.create({
-  mongoUrl : db_URL,
-  crypto : {
-    secret : process.env.SESSION_SECRET
+  mongoUrl: db_URL,
+  crypto: {
+    secret: process.env.SESSION_SECRET,
   },
-  touchAfter : 24*3600
+  touchAfter: 24 * 3600,
 });
 
-store.on("error", ()=>{
+store.on("error", () => {
   console.log("Error in MONGO SESSION STORE !");
   throw new ExpressError(500, "Error in MONGO SESSION STORE !");
 });
 
 const sessionOptions = {
-  store : store,
+  store: store,
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
@@ -74,8 +72,6 @@ const sessionOptions = {
 // app.get("/", (req, res) => {
 //   res.send("Hi ! I'm root page !!");
 // });
-
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -126,6 +122,10 @@ passport.deserializeUser(async (id, done) => {
   } catch (err) {
     done(err, null);
   }
+});
+
+app.get("/", (req, res) => {
+  res.redirect("/listings");
 });
 
 app.use(async (req, res, next) => {
