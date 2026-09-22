@@ -1,0 +1,62 @@
+<% layout("layouts/bplate") %>
+<% title = "WanderLust | New" %>
+
+<link rel="stylesheet" href="/css/new.css">
+<body>
+    <form class="needs-validation" action="/listings" method="POST" novalidate enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <div class="mb-3">
+                    <label for="title" class="form-label login-full-titles">Title</label>
+                    <input type="text" name="title" placeholder="Give it a catchy title" class="form-control login-full-inpbox" required>
+
+                    
+                    <div class="invalid-feedback">Please enter a valid title.</div>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="description" class="form-label login-full-titles">Description</label>
+                    <textarea name="description" placeholder="Tell us more about your listing" class="form-control login-full-inpbox" required></textarea>
+
+                    <div class="invalid-feedback">Description is required.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label login-full-titles">Upload image</label>
+                    <input type="file" name="image" class="form-control login-full-inpbox">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4 ps-0">
+                        <label for="price" class="form-label login-full-titles">Price</label>
+                        <input type="number" name="price" placeholder="Price" class="form-control login-full-inpbox" required>
+
+                        <div class="invalid-feedback">Please enter a valid price.</div>
+                    </div class="mb-3">
+        
+                    <div class="mb-3 col-md-8 ps-0">
+                        <label for="country" class="form-label login-full-titles">Country</label>
+                        <input type="text" name="country" placeholder="Country" class="form-control login-full-inpbox" required>
+
+                        <div class="invalid-feedback">Country is required.</div>
+                    </div>
+                </div>
+
+         
+
+                <div class="mb-3">
+                    <label for="location" class="form-label login-full-titles">Location</label>
+                    <input type="text" name="location" placeholder="Where it has been located" class="form-control login-full-inpbox" required>
+
+                    <div class="invalid-feedback">Location is required.</div>
+                </div>
+
+                <br>
+
+                <button class="btn login-full-btn add-btn">Add</button>
+                <br><br>
+            </div>
+        </div>
+        
+    </form>
+</body> 

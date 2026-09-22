@@ -1,0 +1,14 @@
+
+@font-face {
+  src: url("/fonts/Poppins-Light.ttf");
+  font-family: "pop1";
+}
+
+.card-title {
+    margin-top: 1rem;
+}
+
+.list-desc {
+    font-family: "pop1";
+    font-size: 1.1rem;
+}

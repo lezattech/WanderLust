@@ -1,0 +1,51 @@
+<% layout("layouts/bplate") %>
+<% title = "WanderLust | Login" %>
+
+<link rel="stylesheet" href="/css/login.css">
+
+<div class="row mt-3 login-full-block">
+    <h1 class="col-12 offset-3 login-full-heading">Login to WanderLust <i class="fa-regular fa-compass"></i></h1>
+    <div class="col-6 offset-3">
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label login-full-titles">Username</label>
+                <input
+                    name="username"
+                    id="username"
+                    type="text"
+                    class="form-control login-full-inpbox"
+                    required
+                >
+                <div class="invalid-feedback">Valid username is required.</div>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="password" class="form-label  login-full-titles">Password</label>
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    class="form-control login-full-inpbox"
+                    required
+                >
+                <div class="invalid-feedback">Password is required.</div>
+
+            </div>
+            
+            <button class="btn login-full-btn">Login</button>
+
+            <div class="text-center my-1">
+                <span>OR</span>
+            </div>
+
+            <a href="/auth/google" class="google-btn">
+                <i class="fa-brands fa-google"></i>
+                Continue with Google
+            </a>
+            
+                
+            
+        </form>
+    </div>
+</div>

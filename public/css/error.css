@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: #fe524d;
+}
+
+@font-face {
+    src : url("/fonts/Poppins-Bold.ttf");
+    font-family: "pop1";
+}
+
+@font-face {
+    src : url("/fonts/Roboto_Condensed-Light.ttf");
+    font-family: "rob1";
+}
+
+.error-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.error-image {
+    height: 25rem;
+}
+
+h1 {
+    color: rgb(220,220,220);
+    margin: 0;
+    font-size: 5rem;
+    font-family: "pop1";
+}
+
+p {
+    color: rgb(220,220,220);
+    margin: 0;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgb(255,100,100);
+    font-family: "rob1";
+}

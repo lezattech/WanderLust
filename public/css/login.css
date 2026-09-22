@@ -1,0 +1,109 @@
+@font-face {
+  src: url("/fonts/Roboto_Condensed-Light.ttf");
+  font-family: "rob1";
+}
+@font-face {
+  src: url("/fonts/Poppins-Light.ttf");
+  font-family: "pop1";
+}
+
+.login-full-block {
+  width: 55rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-full-heading {
+  margin-bottom: 2rem;
+  font-size: 2.75rem;
+  font-family: "rob1";
+}
+
+.fa-compass {
+  font-size: 2.75rem;
+}
+
+.login-full-titles {
+  font-size: 1.15rem;
+  font-family: "rob1";
+}
+
+.login-full-inpbox {
+  border-color: rgb(255, 200, 200);
+}
+
+.login-full-inpbox:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 200, 200, 0.25);
+  border-color: rgb(255, 200, 200);
+}
+
+.login-full-btn {
+  color: white;
+  background-color: #fe424d;
+  border-radius: 0.6rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+  width: 100%;
+}
+
+.login-full-btn:hover {
+  color: white;
+  background-color: #e63b46;
+}
+.or {
+  font-family: "pop1";
+  line-height: 0;
+  margin: 10px 0 !important;
+}
+
+
+.google-btn {
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    background-color: #fff;
+    color: #3c4043;
+
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.google-btn:hover {
+    background-color: #f8f9fa;
+    color: #3c4043;
+    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.25);
+}
+
+.google-btn i {
+    font-size: 18px;
+}
+
+.google-newlogin-text-div {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-newlogin-text-inbox {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-family: "pop1";
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+  background-color: rgb(235, 235, 235);
+  border-radius: 2rem;
+}

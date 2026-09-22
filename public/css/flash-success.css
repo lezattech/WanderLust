@@ -1,0 +1,72 @@
+.flash-green {
+  background-color: #198754;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+.flash-yellow {
+  background-color: #ffc107;
+  color: black !important;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+.flash-red {
+  background-color: #dc3545;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+.flash-white {
+  background-color: white;
+  color: #212529 !important;
+  border: 1px solid #ddd;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+}
+
+#newListingAlert {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: white;
+
+  padding: 10px 20px;
+  border-radius: 8px;
+
+  z-index: 9999;
+
+  animation:
+    slideDown 0.5s ease forwards,
+    slideUp 0.5s ease 2.5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -40px);
+  }
+}

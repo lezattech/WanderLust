@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="/css/searchbar.css">
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if (userListingCount > 0) { %>
+          <a class="nav-link" href="/listings/user">My listings</a>
+        <% } %>
+      </div>  
+
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search" action="/listings" method="GET">
+          <input
+            class="form-control me-2 search-bar"
+            type="search"
+            name="search"
+            placeholder="Search destination"
+          />
+
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        
+      </div>
+      
+
+      <div class="navbar-nav ms-auto">
+        <% if(currentUser) { %>
+        <div class="right-user-panel">
+          <div class="user-account">
+            <i class="fa-solid fa-circle-user"></i>
+            @ <%= currentUser.username %>
+          </div>
+          <% } %> 
+      
+          <% if(!currentUser) { %>
+          <a class="nav-link" href="/signup">Signup</a>
+          <a class="nav-link" href="/login">Login</a>
+          <% } %>
+
+          <% if(currentUser) { %>
+          <a class="nav-link" href="/logout">Log out</a>
+          <% } %>
+        </div>
+
+        
+
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script type="application/json" id="destinations-data">
+  <%- JSON.stringify(searchDestinations.map(listing => listing.title)) %>
+</script>
+
+<script>
+  const destinations = JSON.parse(
+    document.getElementById("destinations-data").textContent,
+  );
+
+  const searchInput = document.querySelector(".search-bar");
+
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typePlaceholder() {
+    if (!searchInput || destinations.length === 0) {
+      return;
+    }
+
+    const text = destinations[index];
+
+    if (!isDeleting) {
+      // Typing
+      searchInput.placeholder = text.substring(0, charIndex + 1);
+
+      charIndex++;
+
+      // Word completely typed
+      if (charIndex === text.length) {
+        isDeleting = true;
+
+        // Wait before deleting
+        setTimeout(typePlaceholder, 1500);
+
+        return;
+      }
+
+      setTimeout(typePlaceholder, 100);
+    } else {
+      // Deleting
+      searchInput.placeholder = text.substring(0, charIndex - 1);
+
+      charIndex--;
+
+      // Word completely deleted
+      if (charIndex === 0) {
+        isDeleting = false;
+
+        // Next destination
+        index = (index + 1) % destinations.length;
+
+        setTimeout(typePlaceholder, 500);
+
+        return;
+      }
+
+      setTimeout(typePlaceholder, 50);
+    }
+  }
+
+  typePlaceholder();
+</script>

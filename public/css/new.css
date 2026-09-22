@@ -1,0 +1,42 @@
+@font-face {
+  src: url("/fonts/Roboto_Condensed-Light.ttf");
+  font-family: "rob1";
+}
+@font-face {
+  src: url("/fonts/Poppins-Light.ttf");
+  font-family: "pop1";
+}
+
+
+.login-full-titles {
+  font-size: 1.15rem;
+  font-family: "rob1";
+}
+
+.login-full-inpbox {
+  border-color: lightgray;
+}
+
+.login-full-inpbox::placeholder {
+  font-size: 0.9rem;
+  font-family: "pop1";
+  color: rgb(200,200,200);
+}
+
+.login-full-inpbox:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 200, 200, 0.25);
+  border-color: rgb(255, 200, 200);
+}
+
+.login-full-btn {
+  color: white;
+  background-color: #fe424d;
+  border-radius: 0.6rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+}
+
+.login-full-btn:hover {
+  color: white;
+  background-color: #e63b46;
+}
+

@@ -1,0 +1,41 @@
+@font-face {
+  src: url("/fonts/Roboto_Condensed-Light.ttf");
+  font-family: "rob1";
+}
+@font-face {
+  src: url("/fonts/Poppins-Light.ttf");
+  font-family: "pop1";
+}
+
+.search-btn {
+  color: #fe424d;
+  border-radius: 0.5rem;
+  background-color: rgb(255, 220, 220);
+}
+
+.search-btn:hover {
+  color: #fe424d;
+  border-radius: 0.5rem;
+  background-color: rgb(255, 190, 190);
+}
+
+.search-bar {
+  width: 30rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: "pop1";
+  border-color: rgb(255, 220, 220);
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 200, 200, 0.25);
+  border-color: rgb(255, 200, 200);
+}
+
+.search-bar:focus::placeholder {  
+  color: transparent;
+}
+
+.search-bar::placeholder {
+  color: rgb(255,200,200);
+}

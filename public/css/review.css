@@ -1,0 +1,176 @@
+@font-face {
+  src: url("/fonts/Roboto_Condensed-Light.ttf");
+  font-family: "rob1";
+}
+@font-face {
+  src: url("/fonts/Poppins-Light.ttf");
+  font-family: "pop1";
+}
+
+.review-title,
+.map-title {
+  font-family: "rob1";
+}
+
+.review-title:hover {
+  cursor: pointer;
+}
+
+.map-title:hover {
+  cursor: pointer;
+}
+
+.review-form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    max-height 0.2s ease,
+    opacity 0.15s ease;
+}
+
+.the-map {
+  border-radius: 1.5rem;  
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    max-height 0.2s ease,
+    opacity 0.15s ease;
+}
+
+.toggle-hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+.star-rating {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+.star-filled {
+  color: gold;
+  -webkit-text-stroke: 0.3px black;
+}
+
+.fa-star {
+  font-size: 1.5rem;
+  padding: 0.05rem;
+}
+
+.star-rating-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.review-form-titles {
+  font-size: 1rem;
+  font-family: "pop1";
+}
+
+.review-comment {
+  padding: 0.5rem;
+  resize: none;
+  border-radius: 1rem;
+}
+
+.review-submit-btn {
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  padding: 0.25rem;
+  background-color: #fe424d;
+}
+
+.review-submit-btn:hover {
+  background-color: #e63b46;
+}
+
+.reviews {  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  background-color: rgb(240, 240, 240);
+  box-shadow: -1px 1px 1px gray;
+}
+
+.reviews-heading {
+  font-family: "pop1";
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  grid-column: 1 / -1;
+}
+
+.a-review {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgb(255, 220, 220);
+}
+
+.material-symbols-outlined {
+  color: rgb(110, 110, 110);
+  -webkit-text-stroke: 0.3px black;
+}
+
+.star-rated {
+  color: gold;
+}
+
+.rev-cmt {
+  font-family: "pop1";
+}
+
+.rev-date {
+  font-family: "rob1";
+}
+
+.no-rev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.a-review:has(.no-rev) {
+  grid-column: 1 / -1;
+}
+
+.fa-trash {
+  color: rgb(254, 90, 122);
+}
+
+.del-rev-btn {
+  cursor: pointer;
+  background-color: rgb(255, 220, 220);
+  border: none;
+}
+
+.rev-footer {
+  display: flex;
+}
+
+.review-author {
+  width: fit-content;
+  padding-right: 0.7rem;
+  padding-left: 0.7rem;
+  border-radius: 1rem;
+  background-color: rgb(255, 200, 200);
+}
+
+.review-uname-stars {
+  display: flex;
+  justify-content: space-between;
+}

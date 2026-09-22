@@ -1,0 +1,61 @@
+<% layout("layouts/bplate") %>
+<% title = "WanderLust | SignUp" %>
+
+<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/css/signup.css">
+
+<div class="row mt-3 signup-full-block">
+    <h1 class="col-6 offset-3 signup-full-heading">Signup on WanderLust <i class="fa-regular fa-compass"></i></h1>
+    <div class="col-6 offset-3">
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label login-full-titles">Username</label>
+                <input
+                    name="username"
+                    id="username"
+                    type="text"
+                    class="form-control login-full-inpbox"
+                    required
+                >
+                <div class="invalid-feedback">Valid username is required.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label login-full-titles">Email</label>
+                <input
+                    name="email"
+                    id="email"
+                    type="text"
+                    class="form-control login-full-inpbox"
+                    required
+                >
+                <div class="invalid-feedback">Valid email is required.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label login-full-titles">Password</label>
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    class="form-control login-full-inpbox"
+                    required
+                >
+                <div class="invalid-feedback">Password is required.</div>
+
+            </div>
+            <button class="btn login-full-btn">Signup</button>
+
+            <div class="text-center my-1">
+                <span class="or">OR</span>
+            </div>
+
+            <a href="/auth/google" class="google-btn">
+                <i class="fa-brands fa-google"></i>
+                Continue with Google
+            </a>
+                
+            
+        </form>
+    </div>
+</div>

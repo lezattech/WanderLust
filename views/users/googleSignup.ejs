@@ -1,0 +1,39 @@
+<% layout("layouts/bplate") %>
+
+<link rel="stylesheet" href="/css/login.css">
+
+<div class="row mt-4">
+    <div class="col-6 offset-3">
+
+
+    
+
+        <form action="/google/signup" method="POST">
+
+            <div class="mb-3">
+                <label for="username" class="form-label login-full-titles">
+                    <div class="google-newlogin-text-div">
+                        Username for&nbsp;<div class="google-newlogin-text-inbox"><i class="fa-brands fa-google"></i>&nbsp;:&nbsp;<%= googleProfile.email %></div>
+                    </div>
+                    
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="form-control login-full-inpbox"
+                    minlength="3"
+                    maxlength="20"
+                    required
+                >
+            </div>
+
+            <button class="btn login-full-btn">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>

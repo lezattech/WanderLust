@@ -1,0 +1,67 @@
+<% layout("layouts/bplate") %>
+<% title = "WanderLust | Edit" %>
+
+
+<link rel="stylesheet" href="/css/new.css">
+<body>
+    <form action="/listings/<%= listing._id %>?__method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+
+        <div class="row">
+            <div class="col-8 offset-2">
+                <div class="mb-3">
+                    <label for="title" class="form-label login-full-titles">Title</label>
+                    <input type="text" name="title" placeholder="Give it a catchy title" class="form-control login-full-inpbox" value="<%= listing.title %>" required>
+
+                    <div class="invalid-feedback">Please enter a valid title.</div>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="description" class="form-label login-full-titles">Description</label>
+                    <textarea name="description" placeholder="Tell us more about your listing" class="form-control login-full-inpbox" required><%= listing.description %></textarea>
+
+                    <div class="invalid-feedback">Description is required.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label login-full-titles">Upload image</label>
+                    <input type="file" name="image" class="form-control login-full-inpbox" id="image-input">
+
+                    <div class="listing-preview-block">
+                        <img src="<%= changedImgUrl %>" class="listing-preview">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4 ps-0">
+                        <label for="price" class="form-label login-full-titles">Price</label>
+                        <input type="number" name="price" placeholder="Price" class="form-control login-full-inpbox" value="<%= listing.price %>" required>
+
+                        <div class="invalid-feedback">Please enter a valid price.</div>
+                    </div class="mb-3">
+        
+                    <div class="mb-3 col-md-8 ps-0">
+                        <label for="country" class="form-label login-full-titles">Country</label>
+                        <input type="text" name="country" placeholder="Country" class="form-control login-full-inpbox" value="<%= listing.country %>" required>
+
+                        <div class="invalid-feedback">Country is required.</div>
+                    </div>
+                </div>
+
+         
+
+                <div class="mb-3">
+                    <label for="location" class="form-label login-full-titles">Location</label>
+                    <input type="text" name="location" placeholder="Where it has been located" class="form-control login-full-inpbox" value="<%= listing.location %>" required>
+
+                    <div class="invalid-feedback">Location is required.</div>
+                </div>
+
+                <br>
+
+                <button class="btn login-full-btn add-btn">Confirm changes</button>
+                <br><br>
+            </div>
+        </div>
+    </form>
+</body>
+<script src="/js/image-preview-fun.js"></script> 

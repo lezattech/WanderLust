@@ -1,0 +1,184 @@
+<% layout("layouts/bplate") %>
+<% title = "WanderLust | " + listing.title %>
+
+<link rel="stylesheet" href="/css/review.css">
+<link rel="stylesheet" href="/css/show.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star_half"/>
+
+<script>
+    const mapToken = "<%= process.env.MAP_TOKEN %>";
+    const listingCoordinates = JSON.parse('<%- JSON.stringify(listing.geometry.coordinates) %>');
+    const mapPopTitle = "<%= listing.title %>";
+    const mapPopLocation = "<%= listing.location %>";
+    const mapPopImage = "<%= listing.image.url %>"
+</script>
+
+<div class="row mt-4">
+    <div class="col-8 offset-2">
+
+        <div class="card">
+            <h5 class="card-title">
+                <span><%= listing.title %></span>
+                <span class="listing-price">&#8377;<%= listing.price.toLocaleString("en-IN") %>/night</span>
+            </h5>
+
+            <img
+                src="<%= listing.image.url %>"
+                class="card-img-top show-img"
+                alt="listing_image"
+            >
+            <br>
+            <div class="card-body">
+
+                
+                <p class="card-text list-desc">
+                    <%= listing.description %>
+                </p>
+
+                <p class="card-text">
+                    <i>
+                        <%= listing.location %>, <%= listing.country %>
+                    </i>
+                    
+                    
+                </p>
+                <p class="listing-owner"><i>~ by @<%= listing.owner.username %></i></p>
+
+                <% if(currentUser && currentUser._id.equals(listing.owner._id)) { %>
+
+                <div class="d-flex gap-2">
+
+                    <form action="/listings/<%= listing.id %>/edit">
+                        <button class="btn btn-primary">
+                            Edit Listing
+                        </button>
+                    </form>
+
+                    <form
+                        action="/listings/<%= listing.id %>?__method=DELETE"
+                        method="POST"
+                    >
+                        <button class="btn btn-danger">
+                            Delete Listing
+                        </button>
+                    </form>
+
+                </div>
+                <% } %>
+                
+                <hr>
+
+
+
+                <div class="map-block">
+                    <h4 class="map-title">Where you'll be <i class="fa-solid fa-circle-chevron-down map-down"></i></h4>
+                    <div id="map" class="the-map"></div>
+                    <hr class="after-map-hr">
+                </div>
+
+
+
+                <% if(currentUser) { %>
+                <div class="review-block">
+                    <h4 class="review-title">Leave a review <i class="fa-solid fa-circle-chevron-right rev-right"></i></h4>
+
+                    <form action="/listings/<%= listing.id %>/reviews" method="POST" class="review-form toggle-hidden needs-validation" novalidate>
+                        <div class="star-rating-block">
+                            <h6 class="review-form-titles">Rating : </h6>
+                            <div class="star-rating">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <input type="hidden" value="1" name="rating" class="rating">
+                        </div>
+
+                        <div>
+                            <h6>
+                                <label for="rev-cmt" class="form-label review-form-titles">
+                                    Comment
+                                </label>
+                            </h6>
+                            <textarea
+                                name="comment"
+                                id="rev-cmt"
+                                class="form-control review-comment"
+                                rows="3"
+                                required
+                            ></textarea>
+
+                            <div class="invalid-feedback">
+                                Comment cannot be empty !
+                            </div>
+                        </div>
+                        
+                        
+
+                        <button class="review-submit-btn">Submit feedback</button>
+                        <hr>
+                    </form>
+                </div>
+                
+                <% } %>
+
+                <% if(listing.reviews.length > 0) { %>
+                <div class="reviews">
+
+                    <h1 class="reviews-heading">Reviews <i class="fa-solid fa-arrow-right-long"></i></h1>
+
+                    <% if(listing.reviews.length===0) { %>
+                    <div class="a-review">
+                        <p class="no-rev">No reviews yet ...</p>
+                    </div>
+                    <%  } %>
+                   
+                    <% for(rev of listing.reviews) { %>
+                    <div class="a-review">
+                        <div class="review-uname-stars">
+                            <p class="review-author">@<%= rev.author.username %></p>
+                            <div class="five-stars">
+                                <% for(let i = 1; i <= 5; i++) { %>
+
+                                <span class="material-symbols-outlined <%= i <= rev.rating ? "star-rated" : "" %>">
+                                    star_half
+                                </span>
+
+                                <% } %>
+                            </div>
+                            
+                        </div>
+
+                        
+                        <p class="rev-cmt"><%= rev.comment %></p>
+
+                        <div class="rev-footer">
+                            <p class="rev-date"><i><%= rev.created_at %>&nbsp;&nbsp;</i></p>
+                            <% if(currentUser && currentUser._id.equals(rev.author._id)) { %>
+
+                            <form action="/listings/<%= listing.id %>/reviews/<%= rev._id %>?__method=DELETE" method="POST">
+                                <button class="del-rev-btn"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                            <% } %>
+                        </div>
+                         
+                            
+                      
+                            
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+                
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="/js/map.js"></script>
+<script src="/js/review-fun.js"></script>
+<script src="/js/map-fun.js"></script>
